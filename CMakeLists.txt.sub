@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.22)
+project(LeedCode-11)
+
+set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_CXX_STANDARD 17)
+
+# file(GLOB SRC_LIST "${CMAKE_SOURCE_DIR}/src/11.cpp")
+
+set(maxArea_src "${CMAKE_SOURCE_DIR}/src/maxArea.cpp")
+# 设置动态库路径
+# set(EXECUTABLE_OUTPUT_PATH /home/skyeye/zbs-project/leedcode/libs)
+set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/libs)
+
+
+
+# 生成动态库
+add_library(LeedCode-11 SHARED ${maxArea_src})
+
+# 设置包含目录
+target_include_directories(LeedCode-11 PUBLIC ${CMAKE_SOURCE_DIR}/include)
+
+set_target_properties(LeedCode-11 PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${LIBRARY_OUTPUT_PATH})
